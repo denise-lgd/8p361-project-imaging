@@ -55,4 +55,4 @@ train_1_images = load_a_few_images_from_folder(r'C:\Users\Gebruiker\Documents\TU
 display_images(train_0_images, 'train_images_zero')
 display_images(train_1_images, 'train_images_one')
 
-#aanpassing
+#aanpassing van Marissa nu
