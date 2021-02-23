@@ -17,6 +17,8 @@ from tensorflow.keras.layers import Dense, Flatten
 from tensorflow.keras.layers import Conv2D, MaxPool2D
 from tensorflow.keras.optimizers import SGD
 from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
+
+# unused for now, to be used for ROC analysis
 from sklearn.metrics import roc_curve, auc
 
 
@@ -40,7 +42,7 @@ def get_pcam_generators(base_dir, train_batch_size=32, val_batch_size=32):
                                              target_size=(IMAGE_SIZE, IMAGE_SIZE),
                                              batch_size=train_batch_size,
                                              class_mode='binary')
-    
+
      val_gen = datagen.flow_from_directory(valid_path,
                                              target_size=(IMAGE_SIZE, IMAGE_SIZE),
                                              batch_size=val_batch_size,
@@ -76,7 +78,7 @@ model = get_model()
 
 
 # get the data generators
-train_gen, val_gen = get_pcam_generators(r'C:\Users\20183303\Documents\Jaar 3\Kwartiel 3\Casus 8 - Project imaging - BIA\Data')
+train_gen, val_gen = get_pcam_generators('/change/me/to/dataset/path')
 
 
 
@@ -109,17 +111,3 @@ history = model.fit_generator(train_gen, steps_per_epoch=train_steps,
 # ROC analysis
 
 # TODO Perform ROC analysis on the validation set
-# roc_curve: sklearn.metrics.roc_curve(y_true, y_score, *, pos_label=None, sample_weight=None, drop_intermediate=True)
-# auc: sklearn.metrics.auc(x, y)
-
-fpr, tpr, thresholds = roc_curve(y_true, y_score)
-roc_auc = auc(fpr, tpr)
-# or roc_auc = auc(y_true, y_score)
-#plt.plot(fpr, tpr, label='ROC curve (area = %0.3f)' % roc_auc)
-#plt.plot([0, 1], [0, 1], 'k--')  # random predictions curve
-#plt.xlim([0.0, 1.0])
-#plt.ylim([0.0, 1.0])
-#plt.xlabel('False Positive Rate or (1 - Specifity)')
-#plt.ylabel('True Positive Rate or (Sensitivity)')
-#plt.title('Receiver Operating Characteristic')
-#plt.legend(loc="lower right")
