@@ -83,7 +83,7 @@ train_gen, val_gen = get_pcam_generators(r'C:\Users\Gebruiker\Documents\TUe\Jaar
 
 
 # save the model and weights
-model_name = 'my_first_cnn_model'
+model_name = 'exercise1_cnn_model'
 model_filepath = model_name + '.json'
 weights_filepath = model_name + '_weights.hdf5'
 
@@ -105,7 +105,7 @@ val_steps = val_gen.n//val_gen.batch_size
 history = model.fit_generator(train_gen, steps_per_epoch=train_steps,
                     validation_data=val_gen,
                     validation_steps=val_steps,
-                    epochs=1,
+                    epochs=3,
                     callbacks=callbacks_list)
 
 # ROC analysis on validation set
