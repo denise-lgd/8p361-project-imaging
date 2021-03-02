@@ -17,9 +17,9 @@ from matplotlib.pyplot import imread
 from tensorflow.keras.models import model_from_json
 
 #Change these variables to point at the locations and names of the test dataset and your models.
-TEST_PATH = 'C:/Datasets/test/' 
-MODEL_FILEPATH = 'my_first_cnn_model.json' 
-MODEL_WEIGHTS_FILEPATH = 'my_first_cnn_model_weights.hdf5'
+TEST_PATH = r'C:/Users/Gebruiker/Documents/TUe/Jaar 3/8P361/test/' 
+MODEL_FILEPATH = r'C:/Users/Gebruiker/Documents/TUe/Jaar 3/8P361/8p361-project-imaging/code/exercise1_cnn_model.json' 
+MODEL_WEIGHTS_FILEPATH = r'C:/Users/Gebruiker/Documents/TUe/Jaar 3/8P361/8p361-project-imaging/code/exercise1_cnn_model_weights.hdf5'
 
 # load model and model weights
 json_file = open(MODEL_FILEPATH, 'r')
@@ -65,4 +65,4 @@ for idx in range(0, max_idx, file_batch):
 
 # save your submission
 submission.head()
-submission.to_csv('submission.csv', index = False, header = True)
+submission.to_csv('submission2.csv', index = False, header = True)
